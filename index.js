@@ -1,6 +1,6 @@
 const downloadLink = document.getElementById('download-button');
 const tableBody = document.querySelector('tbody');
-downloadLink.addEventListener('click', () => downloadCSV({ filename: "speakers-list.csv" }))
+const loader = downloadLink.addEventListener('click', () => downloadCSV({ filename: "speakers-list.csv" }))
 let speakersList = []
 const speakerProps = [
     'index',
@@ -13,6 +13,7 @@ const speakerProps = [
 window.onload = async (e) => {
     await fetchSpeakers()
     createListOfSpeaker()
+    document.querySelector('.loader').style.display = 'none'
 };
 
 function createListOfSpeaker() {

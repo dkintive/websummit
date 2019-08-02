@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #download-button{
@@ -21,8 +22,6 @@
 }
 
 .ui.celled.speakers-table{
-
-   
     width: 95%;
 }
 
