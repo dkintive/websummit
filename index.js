@@ -50,8 +50,6 @@ async function fetchSpeakers() {
                     job_title: speaker.job_title,
                     company_name: speaker.company_name,
                     country: speaker.country,
-                    //bio: speaker.bio,
-                    //bio: 'test, test'
                 }
                 speakers.push(newSpeaker)
             });
@@ -63,7 +61,7 @@ async function fetchSpeakers() {
 
     }
 
-    speakers.map((speaker, index) => {
+    speakers.map(speaker => {
         const duplicate = speakersList.find(speakerEl => speakerEl.first_name === speaker.first_name && speakerEl.last_name === speaker.last_name)
         if (duplicate) return
         speakersList.push(speaker)
@@ -106,8 +104,6 @@ function convertArrayOfObjectsToCSV(args) {
 
 async function downloadCSV(args) {
     let data, filename, link;
-
-    console.log('list', speakersList)
     if (!speakersList || !speakersList.length) {
         await fetchSpeakers();
     }
